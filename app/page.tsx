@@ -1,113 +1,166 @@
-import Image from 'next/image'
+import Image from "next/image";
 
-export default function Home() {
+import EmailInput from "@/components/landing/email-input";
+import LandingHeader from "@/components/landing/landing-header";
+import LandingSection from "@/components/landing/landing-section";
+import FAQSection from "@/components/landing/faq-section";
+import LandingFooter from "@/components/landing/landing-footer";
+
+export default function LandingPage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className="flex flex-col gap-2">
+      <section className="min-h-[32rem] h-[80vh]">
+        <div className="-z-20 absolute w-full h-[80vh]">
+          <Image
+            src="/images/auth-bg.jpg"
+            alt="Background Image"
+            layout="fill"
+            objectFit="cover"
+            quality={100}
+            className="object-cover w-full h-full"
+          />
         </div>
-      </div>
+        <div className="-z-10 absolute top-0 h-[80vh] w-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[rgba(0,0,0,0.8)] via-[rgba(0,0,0,0.4)] to-[rgba(0,0,0,0.8)]"></div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
+        <LandingHeader />
+        <div className="h-full max-w-[calc(100%-4rem)] m-auto pb-12 flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center ">
+            <h1 className="text-3xl lg:text-5xl font-[900] text-center">
+              Laughter. Tears. Thrills. Find it all on Netflix.
+            </h1>
+            <p className="text-lg lg:text-2xl mt-4 text-center">
+              Endless entertainment starts at just ₹149. Cancel anytime.
+            </p>
+          </div>
+          <EmailInput />
+        </div>
+      </section>
+      <LandingSection>
+        <div className="flex flex-col justify-center lg:w-1/2 ">
+          <h1 className="text-3xl lg:text-5xl font-[900]">Enjoy on your TV</h1>
+          <p className="text-lg lg:text-2xl mt-4 text-wrap">
+            Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray
+            players and more.
           </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
+        </div>
+        <div className="lg:w-1/2 relative m-auto max-w-[calc(100%-3rem)] flex">
+          <Image
+            src="/images/landing/tv.png"
+            alt="Background Image"
+            width={600}
+            height={400}
+            objectFit="cover"
+            quality={100}
+            className="object-cover w-full h-full"
+          />
+          <div className="absolute top-[21%] left-[13%] h-full w-full max-h-[54%] max-w-[73%] ">
+            <video
+              className="object-contain inline-block overflow-clip"
+              src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-in-0819.m4v"
+              autoPlay
+              loop
+              muted
+            ></video>
+          </div>
+        </div>
+      </LandingSection>
+      <LandingSection>
+        <div className="md:order-2 flex flex-col justify-center lg:w-1/2">
+          <h1 className="text-3xl lg:text-5xl font-[900]">Enjoy on your TV</h1>
+          <p className="text-lg lg:text-2xl mt-4 text-wrap">
+            Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray
+            players and more.
           </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
+        </div>
+        <div className="md:order-1 lg:w-1/2 relative">
+          <Image
+            src="/images/landing/mobile.jpg"
+            alt="Background Image"
+            width={600}
+            height={400}
+            objectFit="cover"
+            quality={100}
+            className="object-cover w-full h-full"
+          />
+          <div className="absolute left-[20%] bottom-[10%] my-auto bg-black flex flex-row justify-between min-w-[15rem] w-[60%] border-2 border-gray-600 rounded-md p-2 overflow-clip items-center">
+            <div className="">
+              <Image
+                alt=""
+                src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/boxshot.png"
+                width={48}
+                height={72}
+                className="h-[3rem] sm:h-[4rem] md:h-[4.5rem] lg:h-[5rem]"
+              />
+            </div>
+            <div className="flex flex-col justify-center mx-auto max-w-[calc(100%-3rem)]">
+              <div id="" className="text-base leading-4">
+                Stranger Things
+              </div>
+              <div id="" className="text-sm text-[#0071eb] leading-4">
+                Downloading...
+              </div>
+            </div>
+            <Image
+              alt=""
+              src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/download-icon.gif"
+              width={24}
+              height={24}
+              className="w-10 h-10"
+            />
+          </div>
+        </div>
+      </LandingSection>
+      <LandingSection>
+        <div className=" flex flex-col justify-center lg:w-1/2">
+          <h1 className="text-3xl lg:text-5xl font-[900]">Watch everywhere</h1>
+          <p className="text-lg lg:text-2xl mt-4 text-wrap">
+            Stream unlimited movies and TV shows on your phone, tablet, laptop,
+            and TV.
           </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
+        </div>
+        <div className="lg:w-1/2 relative">
+          <Image
+            src="/images/landing/device-pile-in.png"
+            alt="Background Image"
+            width={600}
+            height={400}
+            className="w-full h-full bg-transparent"
+          />
+          <div className="-z-10 bg-transparent overflow-hidden absolute top-[14%] left-[24%] h-full w-full max-h-[70%] max-w-[48%]">
+            <video
+              className="object-contain inline-block overflow-clip"
+              src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-devices-in.m4v"
+              autoPlay
+              loop
+              muted
+            ></video>
+          </div>
+        </div>
+      </LandingSection>
+      <LandingSection>
+        <div className="md:order-2 flex flex-col justify-center lg:w-1/2">
+          <h1 className="text-3xl lg:text-5xl font-[900]">
+            Create profiles for kids
+          </h1>
+          <p className="text-lg lg:text-2xl mt-4 text-wrap">
+            Send children on adventures with their favourite characters in a
+            space made just for them—free with your membership.
           </p>
-        </a>
-      </div>
+        </div>
+        <div className="md:order-1 lg:w-1/2 relative">
+          <Image
+            src="/images/landing/children.png"
+            alt="Background Image"
+            width={600}
+            height={400}
+            objectFit="cover"
+            quality={100}
+            className="object-cover w-full h-full"
+          />
+        </div>
+      </LandingSection>
+      <FAQSection />
+      <LandingFooter />
     </main>
-  )
+  );
 }
