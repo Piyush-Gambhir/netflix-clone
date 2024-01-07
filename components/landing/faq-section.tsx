@@ -3,6 +3,7 @@ import React from "react";
 
 import FAQ from "@/components/landing/faq";
 import EmailInput from "@/components/landing/email-input";
+import LandingSection from "@/components/landing/landing-section";
 
 const FAQs = [
   {
@@ -37,8 +38,8 @@ export default function FAQSection({}: Props) {
   const [open, setOpen] = React.useState<number | null>(null);
 
   return (
-    <section className="bg-black py-[72px] w-full">
-      <h1 className="text-3xl lg:text-5xl font-[900] mx-auto w-full text-center">
+    <LandingSection className="flex flex-col">
+      <h1 className="text-3xl lg:text-5xl font-[900] text-center">
         Frequently Asked Questions
       </h1>
       <div className="w-full mt-6 mb-12 flex flex-col gap-2">
@@ -58,6 +59,6 @@ export default function FAQSection({}: Props) {
         ))}
       </div>
       <EmailInput />
-    </section>
+    </LandingSection>
   );
 }

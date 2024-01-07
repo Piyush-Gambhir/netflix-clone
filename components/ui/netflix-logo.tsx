@@ -1,3 +1,4 @@
+import Link from "next/link";
 import cn from "clsx";
 
 type Props = {
@@ -6,7 +7,7 @@ type Props = {
 
 export default function NetflixLogo({ className }: Props) {
   return (
-    <div>
+    <Link href="/" aria-label="Netflix">
       <svg
         viewBox="0 0 111 30"
         data-uia="netflix-logo"
@@ -21,6 +22,6 @@ export default function NetflixLogo({ className }: Props) {
           ></path>
         </g>
       </svg>
-    </div>
+    </Link>
   );
 }

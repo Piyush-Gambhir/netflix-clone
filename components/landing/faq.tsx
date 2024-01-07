@@ -14,7 +14,7 @@ export default function FAQ({ header, body, open, onClick }: Props) {
   return (
     <div
       onClick={onClick}
-      className="w-full max-w-[calc(100%-3rem)] lg:max-w-[calc(100%-6rem)] mx-auto bg-[#232323] flex flex-col cursor-pointer"
+      className="w-full bg-[#2d2d2d] flex flex-col cursor-pointer"
     >
       <div className="flex flex-row p-6 items-center justify-between hover:bg-[#414141] transition-all duration-300">
         <h1 className="text-lg lg:text-2xl font-[900]">{header}</h1>
@@ -27,10 +27,11 @@ export default function FAQ({ header, body, open, onClick }: Props) {
       </div>
       <p
         className={cn(
-          "border-t-2 border-black text-lg lg:text-2xl text-wrap p-6 trasition-all duration-300 ease-in-out",
+          "border-t-2 border-black text-lg lg:text-2xl text-wrap p-6",
           open ? "block" : "hidden"
         )}
       >
+        
         {body}
       </p>
     </div>

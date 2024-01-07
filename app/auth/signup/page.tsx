@@ -1,4 +1,10 @@
-import RegisterForm from "@/components/auth/signup-form";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Netflix Clone - Sign up",
+};
+
+import SignUpForm from "@/components/auth/signup-form";
 export default function Auth() {
-  return <RegisterForm />;
+  return <SignUpForm />;
 }

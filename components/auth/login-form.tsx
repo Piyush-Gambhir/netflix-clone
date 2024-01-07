@@ -1,34 +1,45 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
+import * as z from "zod";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useTransition } from "react";
 
 import Socials from "@/components/auth/socials";
 import Input from "@/components/ui/input";
 import Button from "@/components/ui/button";
+import FormError from "@/components/auth/form-error";
+
+import { LoginSchema } from "@/schemas";
+
+import { login } from "@/actions/login";
 
 type Props = {};
 
-export default function LoginFOrm({}: Props) {
+export default function LoginForm({}: Props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const [error, setError] = useState<string | undefined>("");
+  const [success, setSuccess] = useState<string | undefined>("");
+  const [isPending, startTransition] = useTransition();
+
   const router = useRouter();
 
-  const login = () => {
-    console.log("login");
-  };
-
-  const signIn = (provider: string, options: any) => {
-    console.log(provider, options);
+  const onLoginSubmit = (values: z.infer<typeof LoginSchema>) => {
+    setError("");
+    setSuccess("");
+    startTransition(() => {
+      login(values).then((data) => {
+        setError(data.error);
+        setSuccess(data.success);
+      });
+    });
   };
 
   return (
-    <div className="bg-black bg-opacity-80 px-16 py-16 self-center mt-2 lg:w-2/5 lg:max-w-md rounded-md w-full mb-10">
-      <h2 className="text-white text-3xl mb-8 font-semibold">Sign in</h2>
-      <div className="flex flex-col gap-4">
+    <div className="w-full md:max-w-md bg-black bg-opacity-80 px-16 py-16 self-center mt-2 rounded-md mb-10">
+      <h2 className=" text-white text-3xl mb-8 font-semibold">Sign in</h2>
+      <div className=" flex flex-col gap-4">
         <Input
           id="email"
           type="email"
@@ -46,11 +57,14 @@ export default function LoginFOrm({}: Props) {
       </div>
       <Button
         className="mt-8 w-full"
-        onClick={() => login()}
+        onClick={() => onLoginSubmit({ email, password })}
       >
         Login
       </Button>
       <Socials />
+
+      {error && <FormError error={error} />}
+
       <p className="text-neutral-500 mt-12">
         New to Netflix?
         <span

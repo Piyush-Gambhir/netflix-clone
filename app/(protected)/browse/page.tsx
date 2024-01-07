@@ -10,16 +10,16 @@ import useInfoModalStore from "@/hooks/user-info-modal-store";
 import { getAllMovies } from "@/data/movie";
 import { getUserFavorites } from "@/data/user";
 
-export default async function Browse() {
+export default function Browse() {
   // const { isOpen, closeModal } = useInfoModalStore();
-  const movies = await getAllMovies();
+  // const movies = await getAllMovies();
   return (
     <main>
       {/* <InfoModal visible={isOpen} onClose={closeModal} /> */}
       <Navbar />
       <Billboard />
       <div className="pb-40">
-        <MovieList title="Trending Now" data={movies} />
+        {/* <MovieList Rtitle="Trending Now" data={movies} /> */}
         {/* <MovieList title="My List" data={userFavourites} /> */}
       </div>
     </main>

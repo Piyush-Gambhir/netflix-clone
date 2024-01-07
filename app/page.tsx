@@ -9,21 +9,12 @@ import LandingFooter from "@/components/landing/landing-footer";
 export default function LandingPage() {
   return (
     <main className="flex flex-col gap-2">
-      <section className="min-h-[32rem] h-[80vh]">
-        <div className="-z-20 absolute w-full h-[80vh]">
-          <Image
-            src="/images/auth-bg.jpg"
-            alt="Background Image"
-            layout="fill"
-            objectFit="cover"
-            quality={100}
-            className="object-cover w-full h-full"
-          />
+      <section className="h-full min-h-[32rem] lg:min-h-[43.75rem] flex items-center bg-[url(/images/auth-bg.jpg)] bg-cover">
+        <div className="h-[calc(100%-2.5rem)] w-full z-0 absolute top-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[rgba(0,0,0,0.9)] via-[rgba(0,0,0,0.5)] to-[rgb(0,0,0,0.9)]"></div>
+        <div className="z-10 w-full absolute top-0">
+          <LandingHeader />
         </div>
-        <div className="-z-10 absolute top-0 h-[80vh] w-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[rgba(0,0,0,0.8)] via-[rgba(0,0,0,0.4)] to-[rgba(0,0,0,0.8)]"></div>
-
-        <LandingHeader />
-        <div className="h-full max-w-[calc(100%-4rem)] m-auto pb-12 flex flex-col items-center justify-center">
+        <div className="z-10 mx-auto max-w-[calc(100%-3rem)] sm:max-w-[calc(100%-4rem) lg:max-w-[calc(83.333%-6rem)] 2xl:max-w-[calc(66.333%-6rem)] flex flex-col items-center justify-center">
           <div className="flex flex-col items-center ">
             <h1 className="text-3xl lg:text-5xl font-[900] text-center">
               Laughter. Tears. Thrills. Find it all on Netflix.
@@ -31,29 +22,27 @@ export default function LandingPage() {
             <p className="text-lg lg:text-2xl mt-4 text-center">
               Endless entertainment starts at just ₹149. Cancel anytime.
             </p>
+            <EmailInput />
           </div>
-          <EmailInput />
         </div>
       </section>
-      <LandingSection>
-        <div className="flex flex-col justify-center lg:w-1/2 ">
+      <LandingSection className="flex flex-col md:flex-row gap-4 justify-between">
+        <div className="flex flex-col justify-center basis-1/2">
           <h1 className="text-3xl lg:text-5xl font-[900]">Enjoy on your TV</h1>
           <p className="text-lg lg:text-2xl mt-4 text-wrap">
             Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray
             players and more.
           </p>
         </div>
-        <div className="lg:w-1/2 relative m-auto max-w-[calc(100%-3rem)] flex">
+        <div className="relative basis-1/2">
           <Image
             src="/images/landing/tv.png"
             alt="Background Image"
             width={600}
             height={400}
-            objectFit="cover"
-            quality={100}
-            className="object-cover w-full h-full"
+            className="h-full w-full"
           />
-          <div className="absolute top-[21%] left-[13%] h-full w-full max-h-[54%] max-w-[73%] ">
+          <div className="absolute top-[21%] left-[6%] h-full w-full max-h-[48%] max-w-[34%] ">
             <video
               className="object-contain inline-block overflow-clip"
               src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-in-0819.m4v"
@@ -64,23 +53,22 @@ export default function LandingPage() {
           </div>
         </div>
       </LandingSection>
-      <LandingSection>
-        <div className="md:order-2 flex flex-col justify-center lg:w-1/2">
-          <h1 className="text-3xl lg:text-5xl font-[900]">Enjoy on your TV</h1>
+      <LandingSection className="flex flex-col md:flex-row gap-4 justify-between">
+        <div className="md:order-2 flex flex-col justify-center basis-1/2">
+          <h1 className="text-3xl lg:text-5xl font-[900]">
+            Download your shows to watch offline
+          </h1>
           <p className="text-lg lg:text-2xl mt-4 text-wrap">
-            Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray
-            players and more.
+            Save your favourites easily and always have something to watch.
           </p>
         </div>
-        <div className="md:order-1 lg:w-1/2 relative">
+        <div className="md:order-1 basis-1/2 relative">
           <Image
             src="/images/landing/mobile.jpg"
             alt="Background Image"
             width={600}
             height={400}
-            objectFit="cover"
-            quality={100}
-            className="object-cover w-full h-full"
+            className="w-full h-full"
           />
           <div className="absolute left-[20%] bottom-[10%] my-auto bg-black flex flex-row justify-between min-w-[15rem] w-[60%] border-2 border-gray-600 rounded-md p-2 overflow-clip items-center">
             <div className="">
@@ -110,15 +98,15 @@ export default function LandingPage() {
           </div>
         </div>
       </LandingSection>
-      <LandingSection>
-        <div className=" flex flex-col justify-center lg:w-1/2">
+      <LandingSection className="flex flex-col md:flex-row gap-4 justify-between">
+        <div className="flex flex-col justify-center basis-1/2">
           <h1 className="text-3xl lg:text-5xl font-[900]">Watch everywhere</h1>
           <p className="text-lg lg:text-2xl mt-4 text-wrap">
             Stream unlimited movies and TV shows on your phone, tablet, laptop,
             and TV.
           </p>
         </div>
-        <div className="lg:w-1/2 relative">
+        <div className="basis-1/2 relative">
           <Image
             src="/images/landing/device-pile-in.png"
             alt="Background Image"
@@ -137,8 +125,8 @@ export default function LandingPage() {
           </div>
         </div>
       </LandingSection>
-      <LandingSection>
-        <div className="md:order-2 flex flex-col justify-center lg:w-1/2">
+      <LandingSection className="flex flex-col md:flex-row gap-4 justify-between">
+        <div className="md:order-2 flex flex-col justify-center basis-1/2">
           <h1 className="text-3xl lg:text-5xl font-[900]">
             Create profiles for kids
           </h1>
@@ -147,7 +135,7 @@ export default function LandingPage() {
             space made just for them—free with your membership.
           </p>
         </div>
-        <div className="md:order-1 lg:w-1/2 relative">
+        <div className="md:order-1 basis-1/2 relative">
           <Image
             src="/images/landing/children.png"
             alt="Background Image"

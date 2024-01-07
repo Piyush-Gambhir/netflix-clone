@@ -10,7 +10,7 @@ type Props = {};
 export default function Header({}: Props) {
   const router = useRouter();
   return (
-    <div className="px-8 lg:px-12 py-6 flex flex-row justify-between mx-auto max-w-[calc(83.3333%-3rem)] ">
+    <div className="mx-auto max-w-[calc(100%-3rem)] sm:max-w-[calc(100%-4rem) lg:max-w-[calc(83.333%-6rem)] 2xl:max-w-[calc(66.333%-6rem)] sm:px-8 lg:px-12 py-6 flex flex-row items-center justify-between">
       <NetflixLogo className="h-6 lg:h-10" />
       <div className="flex flex-row items-center justify-end gap-4">
         <LanguageDropdownButton />
